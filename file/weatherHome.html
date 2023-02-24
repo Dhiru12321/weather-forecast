@@ -50,7 +50,7 @@
 <body>
 
     <div class="weather-app">
-        <div class="container">
+        <div class="container1">
             <h3 class="brand" style="font-family: Montserrat; font-weight: 600;font-size: 3rem;">Check-Weather</h3>
             <div>
                 <h1 class="temp">16&#176;</h1>
@@ -106,20 +106,58 @@
             </ul>
         </div>
     </div>
-    <div class="container-down">
-        <h1> Weather forcast details </h1>
-        <div class="weatherRadar">
-            <div class="details">
-                <p>details are shown here</p>
+
+    <!-- map section -->
+
+    <div class="container-fluid" style="padding: 0;">
+        <div class="row p-3">
+            <h2 class="d-flex align-content-center justify-content-lg-center text-success p-4">MAP VIEW</h2>
+            <div class="col-md">
+                <!-- google map video -->
             </div>
-            <div class="map">
-                <p>map is shown here</p>
+            <div class="col-md my-3">
+                <!-- radar map data -->
+                <h3 class="text-white">Here you see the <strong>Radar</strong> view of you location</h3>
+                <ul class="navbar navbar-expand-sm  bg-black text-white map-menu">
+                    <li class="mx-3"><input class="m-2" type="radio" name="kind" checked="checked"
+                            onchange="setKind('radar')">Radar</li>
+                    <li class="mx-3"><input class="m-2" type="radio" name="kind"
+                            onchange="setKind('satellite')">Satellite</li>
+
+                    <li><input type="button" onclick="stop(); showFrame(animationPosition - 1); return;" value="&lt;">
+                    </li>
+                    <li><input type="button" onclick="playStop();" value="Play / Stop" /></li>
+                    <li><input type="button" onclick="stop(); showFrame(animationPosition + 1); return;" value="&gt;" />
+                    <li>
+
+                    <li><select class="mx-4" id="colors" onchange="setColors(); return;">
+                            <option value="0">Black and White Values</option>
+                            <option value="1">Original</option>
+                            <option value="2" selected="selected">Universal Blue</option>
+                            <option value="3">TITAN</option>
+                            <option value="4">The Weather Channel</option>
+                            <option value="5">Meteored</option>
+                            <option value="6">NEXRAD Level-III</option>
+                            <option value="7">RAINBOW @ SELEX-SI</option>
+                            <option value="8">Dark Sky</option>
+                        </select>
+                    </li>
+                </ul>
+                <div class="container bg-white border border-dark border-2 rounded-3 shadow-6-strong d-flex justify-content-end align-content-end"
+                    id="mapid"></div>
             </div>
         </div>
     </div>
+
+    <!-- map api -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcGcugrxgMawL35phS07wFhakzb5xEZ40&callback=initMap"
+        async defer></script>
+
+    <!-- script for map api -->
+    <script src="/map.js"></script>
     <!-- <script src="weatherHome.js"></script> -->
     <script src="/file/weatherHome.js"></script>
-    
+
 </body>
 
 </html>
